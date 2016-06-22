@@ -1,0 +1,591 @@
+﻿/*---------- Loading With Overlay Start ----------*/
+.overlay {
+    position: absolute;
+    z-index: 99;
+    background-color: #F5F5F5;
+    width: 100%;
+    height: 100%;
+    filter: Alpha(Opacity=80);
+    opacity: 0.70;
+    -moz-opacity: 0.70;
+    display: none;
+    top: 0px !important;
+}
+
+.loading {
+    background: url(../images/loading.gif) no-repeat center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 100;
+    background-color: transparent;
+    width: 31px;
+    height: 31px;
+}
+
+.searching {
+    background: url(../images/searching.gif) no-repeat center;
+    background-color: transparent;
+    width: 16px;
+    height: 16px;
+    float: left !important;
+    display: none;
+}
+/* Grid View Style Start */
+.gridTable {
+    font: normal 11px Arial, Helvetica, sans-serif;
+    border: 1px solid #D4D4D4 !important;
+    border-left: none !important;
+    color: #2D2D2D !important;
+    width: 99% !important;
+    table-layout: fixed !important;
+    border-collapse:collapse;
+}
+
+    .gridTable th {
+        border: 1px solid #D4D4D4 !important;
+        border-right: none !important;
+        border-top: none !important;
+        padding: 2px 5px 2px 5px !important;
+        white-space: nowrap;
+    }
+
+    .gridTable td {
+        border: 1px solid #D4D4D4 !important;
+        border-right: none !important;
+        border-top: none !important;
+        padding: 2px 5px 2px 5px !important;
+    }
+
+.gridHeader {
+    font: bold 11px Arial, Helvetica, sans-serif !important;
+    background-image: url(../images/gridHeader.png);
+    background-repeat: repeat-x;
+    border: 1px solid #D4D4D4 !important;
+    border-top: none !important;
+    border-right: none !important;
+    height: 25px;
+    text-align: center;
+}
+
+.gridRowStyle {
+    word-wrap: break-word;
+    background-color: White;
+}
+
+.gridPagerStyle {
+    font: bold 11px Arial, Helvetica, sans-serif;
+    background-image: url(../images/gridHeader.png);
+    background-repeat: repeat-x;
+    border: 1px solid #D4D4D4 !important;
+    border-top: none !important;
+    height: 20px !important;
+    padding: 2px 0px 2px 0px !important;
+    vertical-align: middle !important;
+    width: 98%;
+}
+
+/* Grid View Style End */
+.FilterHeader {
+    font: bold 11px Arial, Helvetica, sans-serif;
+}
+
+.spanHeader {
+    padding-right: 5px !important;
+}
+
+.gridRenderDiv {
+    position: relative;
+    padding-left: 0px !important;
+}
+
+.gridWrapper {
+    max-width: 950px;
+    width: auto;
+    padding: 5px 0px 10px 0px;
+    overflow: auto;
+    overflow-y: hidden;
+    -ms-overflow-y: hidden;
+    min-height: 50px;
+    position: relative;
+}
+
+/*---------- Group By Section  ----------*/
+.inlineDivGroupBold {
+    font: bold 11px Arial, Helvetica, sans-serif;
+    color: #0064F9 !important;
+    text-align: left !important;
+    display: inline;
+    cursor: pointer;
+}
+
+.groupCount {
+    font: normal 11px Arial, Helvetica, sans-serif;
+    color: #000 !important;
+    text-align: left !important;
+}
+
+.PlusLink {
+    background: url(../images/plus.gif) no-repeat left !important;
+    height: 9px !important;
+    width: 9px !important;
+    cursor: pointer !important;
+    padding: 0 5px 0 10px !important;
+    text-align: left;
+    display: inline;
+    text-decoration: none !important;
+}
+
+.MinusLink {
+    background: url(../images/minus.gif) no-repeat left !important;
+    height: 9px !important;
+    width: 9px !important;
+    cursor: pointer !important;
+    padding: 0 5px 0 10px !important;
+    text-align: left;
+    display: inline;
+    text-decoration: none !important;
+}
+
+/*---------- Item Row Menu  ----------*/
+.ItemLink {
+    text-decoration: none;
+}
+
+.ApproveLink {
+    font: normal 12px Arial, Helvetica, sans-serif !important;
+    background: url("../images/approve.png") no-repeat center;
+    height: 13px;
+    cursor: pointer;
+    color: Green;
+    padding: 1px 15px 3px 17px;
+    text-decoration: none !important;
+    background-position: left !important;
+    display: inline-block;
+}
+
+.RejectLink {
+    font: normal 12px Arial, Helvetica, sans-serif !important;
+    background: url("../images/reject.png") no-repeat center;
+    height: 13px;
+    cursor: pointer;
+    color: Red;
+    padding: 1px 5px 4px 17px;
+    text-decoration: none !important;
+    background-position: left !important;
+    display: inline-block;
+}
+
+.divItemMenu {
+    font: normal 11px Arial, Helvetica, sans-serif;
+    position: absolute;
+    border: 1px solid #C0C0C0;
+    background: #FFF;
+    display: none;
+    padding: 5px;
+    height: 60px;
+    width: 100px;
+}
+
+.MenuShowImage {
+    background: url("../images/arrow_down.png") no-repeat center;
+    height: 16px;
+    width: 16px;
+    display: inline;
+    cursor: pointer;
+    float: right;
+    padding: :0 3px 2px 3px;
+}
+/*---------- Filter  ----------*/
+.filterImage {
+    background: url("../images/arrow_down.png") no-repeat center;
+    height: 16px;
+    width: 16px;
+    display: inline;
+    cursor: pointer;
+    float: right;
+    padding: 0 3px 2px 3px;
+}
+
+.FilterImageContainer {
+    height: 16px;
+    width: 16px;
+    float: right !important;
+}
+
+.divFilter {
+    font: normal 11px Arial, Helvetica, sans-serif;
+    position: absolute;
+    border: 1px solid #C0C0C0;
+    background: #FFF;
+    display: none;
+    overflow: auto;
+    padding: 5px;
+    max-height: 280px;
+    z-index: 9999 !important;
+}
+
+.ViewFilter {
+    background: url("../images/filter.png") no-repeat center;
+    height: 8px;
+    width: 8px;
+    display: inline-block;
+}
+
+.inputControl {
+    border: 1px solid #C0C0C0 !important;
+    height: 20px;
+    background-color: transparent;
+    color: #000;
+    float: left !important;
+}
+
+.inputControlWaterMark {
+    border: 1px solid #B0B0B0 !important;
+    height: 20px;
+    background-color: transparent;
+    color: #C0C0C0;
+    float: left;
+}
+
+.selectControlDiv {
+    display: inline;
+    float: right;
+    padding: 2px 20px 2px 0;
+    width: 820px;
+}
+
+.PagingControlDiv {
+    float: left;
+    padding: 0 10px 0 4px;
+    vertical-align: middle !important;
+    vertical-align: middle;
+}
+
+.labelPageInfo {
+    padding: 0px 5px 0px 15px;
+    float: left;
+}
+
+.NextPage {
+    background: url("../images/next.gif") no-repeat center;
+    height: 14px;
+    width: 9px;
+    display: inline-block;
+    cursor: pointer;
+    float: right;
+}
+
+.PrevPage {
+    background: url("../images/prev.gif") no-repeat center;
+    height: 14px;
+    width: 9px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.SortAscending {
+    background: url("../images/SORTAZ.GIF") no-repeat center;
+    height: 16px;
+    cursor: pointer;
+    color: #2D2D2D !important;
+    padding: 0 0 0 20px !important;
+    text-decoration: none !important;
+    background-position: left !important;
+}
+
+.SortDescending {
+    background: url("../images/SORTZA.GIF") no-repeat center;
+    height: 16px;
+    cursor: pointer;
+    color: #2D2D2D !important;
+    padding: 0 0 0 20px !important;
+    text-decoration: none !important;
+    background-position: left !important;
+}
+
+.ViewASC {
+    background: url("../images/SORTUP.GIF") no-repeat center;
+    height: 8px;
+    width: 5px;
+    display: inline-block;
+}
+
+.ViewDESC {
+    background: url(../images/SORTDOWN.GIF) no-repeat center;
+    height: 8px;
+    width: 5px;
+    display: inline-block;
+}
+
+.FilterDisabled {
+    background: url("../images/filteroffdisabled.gif") no-repeat center;
+    height: 16px;
+    cursor: pointer;
+    color: Gray;
+    padding: 0 0 0 20px;
+    text-decoration: none !important;
+    background-position: left !important;
+}
+
+.FilterEnabled {
+    background: url("../images/filteroff.gif") no-repeat center;
+    height: 16px;
+    cursor: pointer;
+    color: #2D2D2D;
+    padding: 0 0 3px 20px;
+    text-decoration: none !important;
+    background-position: left !important;
+}
+
+.FilterCheckBox {
+    border: none !important;
+    padding-left: 10px;
+}
+
+    .FilterCheckBox td {
+        border: none !important;
+    }
+
+.SortLink {
+    text-decoration: none !important;
+}
+
+.EditLink {
+    background: url("../images/editItem.png") no-repeat center;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+}
+
+.ItemMenuCell {
+    text-decoration: none !important;
+}
+
+.ItemMenuEdit {
+    background: url("../images/editItem.png") no-repeat center;
+    cursor: pointer;
+    height: 16px;
+    color: #2D2D2D !important;
+    padding: 0 0 0 20px !important;
+    text-decoration: none !important;
+    background-position: left !important;
+}
+
+.ItemMenuView {
+    background: url("../images/viewItem.png") no-repeat center;
+    cursor: pointer;
+    height: 16px;
+    color: #2D2D2D !important;
+    padding: 0 0 0 20px !important;
+    text-decoration: none !important;
+    background-position: left !important;
+}
+
+.ViewLink {
+    background: url("../images/viewItem.png") no-repeat center;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+}
+
+/*----------GridView Header CSS  ----------*/
+
+.AttachmentColumnHeader {
+    background: url("../images/attachment.png") no-repeat center;
+    width: 16px !important;
+    text-align: center;
+}
+
+.ViewColumnHeader {
+    width: 30px !important;
+    text-align: center;
+}
+
+.ColumnHeaderSmall {
+    width: 75px !important;
+    text-align: center;
+}
+
+.ColumnHeaderID {
+    width: 90px !important;
+    text-align: center !important;
+}
+
+.ColumnHeaderMedium {
+    width: 125px !important;
+    text-align: center;
+}
+
+.ColumnHeaderLarge {
+    width: 175px !important;
+    text-align: center;
+}
+
+/*----------Pagination CSS Start ----------*/
+
+.pagination {
+    font-size: 80%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+    .pagination a {
+        display: block;
+        float: left;
+        padding: 0.3em 0.5em;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        border: solid 1px #AAE;
+        color: #15B;
+        vertical-align: middle;
+    }
+
+    .pagination span {
+        display: block;
+        float: left;
+        padding: 0.3em 0.5em;
+        margin-right: 5px;
+        margin-bottom: 5px;
+    }
+
+    .pagination .current {
+        background: #26B;
+        color: #fff;
+        border: solid 1px #AAE;
+    }
+
+    .pagination div {
+        display: inline-block !important;
+        width: auto !important;
+    }
+/*----------Pagination CSS End ----------*/
+/*----------AutoComplete Filter CSS Start ----------*/
+
+.ui-widget {
+    font: normal 12px Arial, Helvetica, sans-serif;
+}
+
+    .ui-widget .ui-widget {
+        font-size: 12px;
+    }
+
+    .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+        font-family: Lucida Grande, Lucida Sans, Arial, sans-serif;
+        font-size: 1em;
+    }
+
+.ui-widget-content {
+    border: 1px solid #dddddd;
+    background: #f2f5f7 url(ui-bg_highlight-hard_100_f2f5f7_1x100.png) 50% top repeat-x;
+    color: #362b36;
+}
+
+    .ui-widget-content a {
+        color: #362b36;
+    }
+
+.ui-widget-header {
+    border: 1px solid #aed0ea;
+    background: #deedf7 url(ui-bg_highlight-soft_100_deedf7_1x100.png) 50% 50% repeat-x;
+    color: #222222;
+    font-weight: bold;
+}
+
+    .ui-widget-header a {
+        color: #222222;
+    }
+
+    .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+        border: 1px solid #74b2e2;
+        background: #e4f1fb url(ui-bg_glass_100_e4f1fb_1x400.png) 50% 50% repeat-x;
+        font-weight: bold;
+        color: #0070a3;
+    }
+
+    .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+        border: 1px solid #2694e8;
+        background: #3baae3 url(ui-bg_glass_50_3baae3_1x400.png) 50% 50% repeat-x;
+        font-weight: bold;
+        color: #ffffff;
+    }
+
+.ui-widget :active {
+    outline: none;
+}
+
+.ui-autocomplete {
+    position: absolute;
+    cursor: default;
+    max-height: 200px;
+    overflow: auto;
+    z-index: 9999 !important;
+}
+
+* html .ui-autocomplete {
+    width: 1px;
+}
+
+.ui-corner-all {
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+}
+
+.ui-menu {
+    list-style: none;
+    padding: 2px;
+    margin: 0;
+    display: block;
+    float: left;
+}
+
+    .ui-menu .ui-menu {
+        margin-top: -3px;
+    }
+
+    .ui-menu .ui-menu-item {
+        margin: 0;
+        padding: 0;
+        zoom: 1;
+        float: left;
+        clear: left;
+        width: 100%;
+    }
+
+        .ui-menu .ui-menu-item a {
+            text-decoration: none;
+            display: block;
+            padding: .2em .4em;
+            line-height: 1.5;
+            zoom: 1;
+        }
+
+            .ui-menu .ui-menu-item a.ui-state-hover, .ui-menu .ui-menu-item a.ui-state-active {
+                font-weight: normal;
+                margin: -1px;
+            }
+
+.ui-helper-hidden-accessible {
+    display: none;
+}
+/*----------AutoComplete CSS End ----------*/
+
+
+.divShowSum {
+    width:100%;
+    text-align:center;
+    font-weight:bold;
+}
+
+
+.exportDiv {
+    background: url("../images/Export.jpg") no-repeat center;
+    float: left;
+    height: 20px;
+    margin: 0 0 5px 5px;
+    width: 20px;
+    cursor: pointer;
+}
