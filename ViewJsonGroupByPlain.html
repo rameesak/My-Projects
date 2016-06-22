@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!doctype html>
+<html>
+<head>
+    <title></title>
+    <link href="styles/jqueryGridViewPlain.css" rel="stylesheet"
+        type="text/css" />
+    <script type="text/javascript" src="scripts/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="scripts/jqueryGridViewJSON.min.js"></script>
+    <script type="text/javascript">
+        var tempdata = [
+        { ID: "1", Country: "Philippines", State: "Manila", City: "Paranaque", Pin: "54445" },
+        { ID: "2", Country: "Philippines", State: "Manila", City: "Quezon City", Pin: "54445" },
+        { ID: "3", Country: "Philippines", State: "Albay", City: "Legazpi City", Pin: "65655" },
+        { ID: "4", Country: "Philippines", State: "Albay", City: "Camalig", Pin: "65655" },
+        { ID: "5", Country: "Philippines", State: "Cam-Sur", City: "Naga", Pin: "98978" },
+        { ID: "6", Country: "Philippines", State: "Cam-Sur", City: "ehem", Pin: "98978" },
+        { ID: "7", Country: "Canada", State: "Alberta", City: "Edmonton", Pin: "34547" },
+        { ID: "8", Country: "Canada", State: "Alberta", City: "Calgary", Pin: "34547" },
+        { ID: "9", Country: "Canada", State: "British Columbia", City: "Victoria", Pin: "97676" },
+        { ID: "10", Country: "Canada", State: "British Columbia", City: "Vancouver", Pin: "97676" },
+        { ID: "11", Country: "Canada", State: "Ontario", City: "Toronto", Pin: "54343" },
+        { ID: "12", Country: "Canada", State: "Ontario", City: "Hamilton", Pin: "54343" },
+        { ID: "13", Country: "United States", State: "California", City: "Los Angeles", Pin: "34344" },
+        { ID: "14", Country: "United States", State: "California", City: "San Francisco", Pin: "34344" },
+        { ID: "15", Country: "United States", State: "Florida", City: "Miami", Pin: "67565" },
+        { ID: "16", Country: "United States", State: "Florida", City: "Orlando", Pin: "67565" },
+        { ID: "17", Country: "United States", State: "New York", City: "Buffalo", Pin: "35656" },
+        { ID: "18", Country: "United States", State: "New York", City: "New York", Pin: "35656" },
+        { ID: "19", Country: "Mexico", State: "Baja California", City: "Tijauna", Pin: "34344" },
+        { ID: "20", Country: "Mexico", State: "Baja California", City: "Mexicali", Pin: "34344" },
+        { ID: "21", Country: "Mexico", State: "Chihuahua", City: "Ciudad Juarez", Pin: "67565" },
+        { ID: "22", Country: "Mexico", State: "Chihuahua", City: "Chihuahua", Pin: "35656" },
+        { ID: "23", Country: "Mexico", State: "Jalisco", City: "Guadalajara", Pin: "67565" },
+        { ID: "24", Country: "Mexico", State: "Jalisco", City: "Chapala", Pin: "35656"},
+
+	{ ID: "25", Country: "Philippines", State: "Manila", City: "Paranaque", Pin: "54445" },
+        { ID: "26", Country: "Philippines", State: "Manila", City: "Quezon City", Pin: "54445" },
+        { ID: "27", Country: "Philippines", State: "Albay", City: "Legazpi City", Pin: "65655" },
+        { ID: "28", Country: "Philippines", State: "Albay", City: "Camalig", Pin: "65655" },
+        { ID: "29", Country: "Philippines", State: "Cam-Sur", City: "Naga", Pin: "98978" },
+        { ID: "30", Country: "Philippines", State: "Cam-Sur", City: "ehem", Pin: "98978" },
+        { ID: "31", Country: "Canada", State: "Alberta", City: "Edmonton", Pin: "34547" },
+        { ID: "32", Country: "Canada", State: "Alberta", City: "Calgary", Pin: "34547" },
+        { ID: "34", Country: "Canada", State: "British Columbia", City: "Victoria", Pin: "97676" },
+        { ID: "35", Country: "Canada", State: "British Columbia", City: "Vancouver", Pin: "97676" },
+        { ID: "36", Country: "Canada", State: "Ontario", City: "Toronto", Pin: "54343" },
+        { ID: "37", Country: "Canada", State: "Ontario", City: "Hamilton", Pin: "54343" },
+        { ID: "38", Country: "United States", State: "California", City: "Los Angeles", Pin: "34344" },
+        { ID: "39", Country: "United States", State: "California", City: "San Francisco", Pin: "34344" },
+        { ID: "40", Country: "United States", State: "Florida", City: "Miami", Pin: "67565" },
+        { ID: "41", Country: "United States", State: "Florida", City: "Orlando", Pin: "67565" },
+        { ID: "42", Country: "United States", State: "New York", City: "Buffalo", Pin: "35656" },
+        { ID: "43", Country: "United States", State: "New York", City: "New York", Pin: "35656" },
+        { ID: "44", Country: "Mexico", State: "Baja California", City: "Tijauna", Pin: "34344" },
+        { ID: "45", Country: "Mexico", State: "Baja California", City: "Mexicali", Pin: "34344" },
+        { ID: "46", Country: "Mexico", State: "Chihuahua", City: "Ciudad Juarez", Pin: "67565" },
+        { ID: "47", Country: "Mexico", State: "Chihuahua", City: "Chihuahua", Pin: "35656" },
+        { ID: "48", Country: "Mexico", State: "Jalisco", City: "Guadalajara", Pin: "67565" },
+        { ID: "49", Country: "Mexico", State: "Jalisco", City: "Chapala", Pin: "35656"}
+
+	];
+
+
+        $(document).ready(function () {
+            var viewFieldsArray = [{ InternalName: "ID", DisplayName: "ID", IsTitle: false, Style: "ColumnHeaderSmall", ColumnType: "Number", FilterEnabled: true },
+            { InternalName: "Country", DisplayName: "Country", IsTitle: false, Style: "ColumnHeaderMedium", ColumnType: "Text", FilterEnabled: true },
+            { InternalName: "State", DisplayName: "State", IsTitle: false, Style: "ColumnHeaderMedium", ColumnType: "Text", FilterEnabled: true },
+            { InternalName: "City", DisplayName: "City", IsTitle: false, Style: "ColumnHeaderMedium", ColumnType: "Text", FilterEnabled: true },
+            { InternalName: "Pin", DisplayName: "Pin", IsTitle: false, Style: "ColumnHeaderMedium", ColumnType: "Text", FilterEnabled: true }
+        ];
+
+            $('#divRenderGrid').jqueryGridView({ viewFields: viewFieldsArray, defaultFilter: [], dataSource: tempdata,
+                viewPageURL: "", editPageURL: "", queryStringColumn: "ID", showItemMenu: false, enableCookie: false,
+                enablePaging: false, pageSize: 5, showPages: 5, groupByEnabled: true, groupBy: "Country", showHeader: true,
+		showSum: true, sumOf: "ID",gridViewName:"GroupedRequestView"
+            });
+        });
+
+    
+    </script>
+</head>
+<body>
+    <div id="divRenderGrid" class="gridRenderDiv">
+    </div>
+</body>
+</html>
